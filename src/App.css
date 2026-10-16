@@ -1,0 +1,142 @@
+
+/* LinkPulse — Premium UI polish */
+
+:root {
+  --lp-transition: 220ms ease;
+}
+
+/* Smooth scrolling and consistent sizing */
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Page entrance animation */
+#root {
+  min-height: 100vh;
+  animation: lp-page-enter 500ms ease both;
+}
+
+@keyframes lp-page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Premium card hover effects */
+#root .rounded-2xl.border {
+  transition:
+    transform var(--lp-transition),
+    box-shadow var(--lp-transition),
+    border-color var(--lp-transition);
+}
+
+#root .rounded-2xl.border:hover {
+  border-color: #dbeafe;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.055);
+}
+
+/* Buttons */
+#root button {
+  transition:
+    transform var(--lp-transition),
+    box-shadow var(--lp-transition),
+    background-color var(--lp-transition),
+    border-color var(--lp-transition);
+}
+
+#root button:hover {
+  transform: translateY(-1px);
+}
+
+#root button:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Keyboard accessibility */
+#root button:focus-visible,
+#root a:focus-visible,
+#root input:focus-visible,
+#root select:focus-visible {
+  outline: 3px solid rgba(59, 130, 246, 0.45);
+  outline-offset: 3px;
+}
+
+/* Inputs */
+#root input,
+#root select {
+  transition:
+    border-color var(--lp-transition),
+    box-shadow var(--lp-transition),
+    background-color var(--lp-transition);
+}
+
+#root input:focus,
+#root select:focus {
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.09);
+}
+
+/* Links */
+#root a {
+  transition: color var(--lp-transition);
+}
+
+/* Table row polish */
+#root tbody tr {
+  transition: background-color var(--lp-transition);
+}
+
+/* QR code reveal */
+@keyframes lp-qr-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+#root img[alt="Generated QR code"] {
+  animation: lp-qr-reveal 350ms ease both;
+}
+
+/* Responsive refinements */
+@media (max-width: 768px) {
+  #root main {
+    padding: 1rem;
+  }
+
+  #root header {
+    padding: 1rem;
+  }
+
+  #root .rounded-2xl.border:hover {
+    transform: none;
+  }
+
+  #root button:hover {
+    transform: none;
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
