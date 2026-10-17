@@ -1,10 +1,21 @@
 
-import { createClient } from "@supabase/supabase-js";
+const API_URL = import.meta.env.VITE_API_URL;
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
+export const api = async (path, options = {}) => {
+  const response = await fetch(`${API_URL}${path}`, {
+    ...options,
+    credentials: "include",
+    headers: {
+      "Content-Type": "application/json",
+      ...options.headers,
+    },
+  });
 
-export const supabase = createClient(
-  supabaseUrl,
-  supabaseKey
-);
+  const data = await response.json().catch(() => ({}));
+
+  if (!response.ok) {
+    throw new Error(data.message || data.error || "Request failed");
+  }
+
+  return data;
+};

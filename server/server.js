@@ -11,12 +11,18 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
+
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: [
+      "http://localhost:5173",
+      "https://link-pulse-eta.vercel.app",
+      "https://link-pulse-8p5j9fbsc-paraspandey215-5360.vercel.app",
+    ],
     credentials: true,
   })
 );
+
 
 app.use(express.json());
 app.use(require("cookie-parser")());
@@ -28,11 +34,12 @@ app.use(
       "linkpulse-local-development-secret",
     resave: false,
     saveUninitialized: false,
-    cookie: {
-      httpOnly: true,
-      secure: false, // Local HTTP development only
-      sameSite: "lax",
-      maxAge: 24 * 60 * 60 * 1000,
+    cookie: 
+    {
+    httpOnly: true,
+    secure: true,
+    sameSite: "none",
+    maxAge: 24 * 60 * 60 * 1000,
     },
   })
 );
