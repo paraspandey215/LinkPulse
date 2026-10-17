@@ -6,8 +6,13 @@ const router = express.Router();
 
 const MAX_URL_LENGTH = 2048;
 const BLOCKED_HOSTS = new Set(["malware.test", "phishing.test"]);
-const APP_BASE_URL = (process.env.APP_BASE_URL || "http://localhost:5173").replace(/\/+$/, "");
-const PUBLIC_BASE_URL = (process.env.PUBLIC_BASE_URL || "http://localhost:5000").replace(/\/+$/, "");
+const APP_BASE_URL = (
+  process.env.APP_BASE_URL || "https://link-pulse-eta.vercel.app"
+).replace(/\/+$/, "");
+
+const PUBLIC_BASE_URL = (
+  process.env.PUBLIC_BASE_URL || "https://linkpulse-production-7da4.up.railway.app"
+).replace(/\/+$/, "");
 
 function requireLogin(req, res, next) {
   if (!req.session || !req.session.userId) {

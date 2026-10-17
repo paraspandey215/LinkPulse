@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 
-const API_URL = "http://localhost:5000/api/auth";
+const API_URL = "https://linkpulse-production-7da4.up.railway.app/api/auth";
 
 export default function Auth({ onAuthSuccess }) {
   const [mode, setMode] = useState("login");

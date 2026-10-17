@@ -51,7 +51,7 @@ async function testBackend() {
 
    try {
 
-      const response = await fetch('http://localhost:5000/');
+      const response = await fetch('https://linkpulse-production-7da4.up.railway.app/');
 
       const data = await response.json();
 
@@ -71,7 +71,7 @@ async function fetchLinks(setLinks) {
 
     const response = await fetch(
 
-      "http://localhost:5000/api/links",
+      "https://linkpulse-production-7da4.up.railway.app/api/links",
 
       {
 
@@ -111,7 +111,7 @@ async function fetchDashboardAnalytics(setAnalytics) {
 
     const response = await fetch(
 
-      "http://localhost:5000/api/links/dashboard/analytics",
+      "https://linkpulse-production-7da4.up.railway.app/api/links/dashboard/analytics",
 
       {
 
@@ -559,7 +559,7 @@ function ClickChart() {
 
             const response = await fetch(
 
-  `http://localhost:5000/api/links/analytics/timeline?days=${days}`,
+  `https://linkpulse-production-7da4.up.railway.app/api/links/analytics/timeline?days=${days}`,
 
   {
 
@@ -939,7 +939,7 @@ function RecentLinks({ links, onDeleteLink }) {
 
          const response = await fetch(
 
-            `http://localhost:5000/api/links/${link.shortCode}/stats`
+            `https://linkpulse-production-7da4.up.railway.app/api/links/${link.shortCode}/stats`
 
          );
 
@@ -1011,7 +1011,7 @@ function RecentLinks({ links, onDeleteLink }) {
       setDeletingCode(link.shortCode);
       try {
          const response = await fetch(
-            `http://localhost:5000/api/links/${encodeURIComponent(link.shortCode)}`,
+            `https://linkpulse-production-7da4.up.railway.app/api/links/${encodeURIComponent(link.shortCode)}`,
             { method: "DELETE", credentials: "include" }
          );
          const data = await response.json();
@@ -1635,7 +1635,7 @@ async function handleShortenUrl(e) {
 
       const response = await fetch(
 
-         "http://localhost:5000/api/links/shorten",
+         "https://linkpulse-production-7da4.up.railway.app/api/links/shorten",
 
          {
 
@@ -1875,7 +1875,7 @@ function handleDownloadQR() {
 
       try {
 
-        const response = await fetch("http://localhost:5000/api/auth/me", {
+        const response = await fetch("https://linkpulse-production-7da4.up.railway.app/api/auth/me", {
 
           credentials: "include",
 
@@ -1956,7 +1956,7 @@ function handleDownloadQR() {
 
     try {
 
-      const response = await fetch("http://localhost:5000/api/auth/logout", {
+      const response = await fetch("https://linkpulse-production-7da4.up.railway.app/api/auth/logout", {
 
         method: "POST",
 
