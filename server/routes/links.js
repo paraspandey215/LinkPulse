@@ -1,14 +1,14 @@
 const express = require("express");
 const { randomBytes, randomUUID } = require("crypto");
 const pool = require("../db");
-
 const router = express.Router();
-
 const MAX_URL_LENGTH = 2048;
 const BLOCKED_HOSTS = new Set(["malware.test", "phishing.test"]);
+
 const APP_BASE_URL = (
   process.env.APP_BASE_URL || "https://link-pulse-eta.vercel.app"
 ).replace(/\/+$/, "");
+
 
 const PUBLIC_BASE_URL = (
   process.env.PUBLIC_BASE_URL || "https://linkpulse-production-7da4.up.railway.app"
@@ -21,6 +21,7 @@ function requireLogin(req, res, next) {
       message: "Please log in to access your links.",
     });
   }
+
   next();
 }
 
@@ -364,7 +365,6 @@ router.delete("/:shortCode", requireLogin, async (req, res) => {
       "DELETE FROM links WHERE id = ? AND user_id = ?",
       [linkId, req.session.userId]
     );
-
     await connection.commit();
 
     return res.json({
@@ -372,7 +372,8 @@ router.delete("/:shortCode", requireLogin, async (req, res) => {
       message: "Link deleted successfully.",
       shortCode,
     });
-  } catch (error) {
+  } 
+  catch (error) {
     if (connection) {
       await connection.rollback().catch(() => {});
     }
@@ -387,7 +388,6 @@ router.delete("/:shortCode", requireLogin, async (req, res) => {
     if (connection) connection.release();
   }
 });
-
 
 // List only the signed-in user's links.
 router.get("/", requireLogin, async (req, res) => {
