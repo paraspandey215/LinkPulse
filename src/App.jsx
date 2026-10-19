@@ -1577,11 +1577,11 @@ async function handleShortenUrl(e) {
 
    }
 
-   // Add HTTPS when the user enters a domain without a protocol.
+   
 
    if (!/^https?:\/\//i.test(normalizedUrl)) {
 
-      // Do not interpret unsafe or other explicit protocols as domains.
+    
 
       if (/^[a-z][a-z0-9+.-]*:/i.test(normalizedUrl)) {
 
@@ -1594,6 +1594,7 @@ async function handleShortenUrl(e) {
       normalizedUrl = `https://${normalizedUrl}`;
 
    }
+
 
    let parsedUrl;
 
@@ -1660,6 +1661,7 @@ async function handleShortenUrl(e) {
       if (!response.ok || !data.success) {
 
          showNotice(data.message || "Failed to shorten URL.");
+
 
          return;
 
