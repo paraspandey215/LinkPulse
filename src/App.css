@@ -1,11 +1,11 @@
 
-/* LinkPulse — Premium UI polish */
+
 
 :root {
   --lp-transition: 220ms ease;
 }
 
-/* Smooth scrolling and consistent sizing */
+
 html {
   scroll-behavior: smooth;
 }
@@ -14,7 +14,7 @@ html {
   box-sizing: border-box;
 }
 
-/* Page entrance animation */
+
 #root {
   min-height: 100vh;
   animation: lp-page-enter 500ms ease both;
@@ -31,7 +31,7 @@ html {
   }
 }
 
-/* Premium card hover effects */
+
 #root .rounded-2xl.border {
   transition:
     transform var(--lp-transition),
