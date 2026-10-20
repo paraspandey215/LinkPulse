@@ -28,7 +28,7 @@ LinkPulse simplifies URL sharing by converting long URLs into short links. It pr
 - Vite
 - JavaScript
 - HTML and CSS
-- Tailwind CSS (where used)
+- Tailwind CSS 
 
 ### Backend
 - Node.js
