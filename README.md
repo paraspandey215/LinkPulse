@@ -17,7 +17,7 @@ LinkPulse simplifies URL sharing by converting long URLs into short links. It pr
 - **Link Management:** View and manage created short links.
 - **Click Tracking:** Track clicks on shortened URLs.
 - **Analytics Dashboard:** View link performance statistics.
-- **Unique Visitor Tracking:** Monitor unique visitors where supported by the analytics implementation.
+- **Unique Visitor Tracking:** Monitor unique visitors supported by the analytics implementation.
 - **Automatic Redirection:** Redirect short URLs to their original destinations.
 - **Responsive UI:** Access the interface on supported desktop and mobile screens.
 
